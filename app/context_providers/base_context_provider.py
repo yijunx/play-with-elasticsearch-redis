@@ -1,4 +1,5 @@
 import asyncio
+import random
 from abc import ABC, abstractmethod
 
 
@@ -23,18 +24,19 @@ class JiberishContextProvider(BaseContextProvider):
         self, query_vector: list[float], quantity: int
     ) -> list[str]:
         await asyncio.sleep(self.simulated_delay)
-        return self.facts[:quantity]
+        return random.sample(self.facts, min(quantity, len(self.facts)))
 
 
 async def gather_async_contexts(
     async_providers: list[BaseContextProvider], n: int, query_vector: list[float]
-) -> list[list[str]]:
+) -> list[str]:
     tasks = [
-        provider.provide_contexts(query_vector=[0.0] * 512, quantity=n)
+        provider.provide_contexts(query_vector=query_vector, quantity=n)
         for provider in async_providers
     ]
     results = await asyncio.gather(*[task for task in tasks])
-    return results
+    flattened_results = [item for sublist in results for item in sublist]
+    return random.sample(flattened_results, min(n, len(flattened_results)))
 
 
 # class AsyncContextProvider1(BaseContextProvider):

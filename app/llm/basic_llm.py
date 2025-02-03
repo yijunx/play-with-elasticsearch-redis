@@ -19,54 +19,6 @@ class BasicLLM:
         self.model_name = model
         self.client = Client(base_url=self.base_url, api_key=self.api_key)
 
-    def stream_response(
-        self,
-        conversation: list[MessageForLLM],
-        sys_prompt: str,
-        temperature: int,
-        frequency_penalty: float = None,
-    ) -> Iterable[str]:
-        messages = [
-            {
-                "role": "system",
-                "content": sys_prompt,
-            },
-        ] + [x.model_dump() for x in conversation]
-
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=messages,
-            temperature=temperature,
-            frequency_penalty=frequency_penalty,
-            stream=True,
-        )
-        for chunk in response:
-            chunk_message = chunk.choices[0].delta.content
-            if chunk_message:
-                yield chunk_message
-
-    def full_response(
-        self,
-        conversation: list[MessageForLLM],
-        sys_prompt: str,
-        temperature: int,
-        frequency_penalty: float = None,
-    ) -> str:
-        messages = [
-            {
-                "role": "system",
-                "content": sys_prompt,
-            },
-        ] + [x.model_dump() for x in conversation]
-
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=messages,
-            temperature=temperature,
-            frequency_penalty=frequency_penalty,
-        )
-        return response.choices[0].message.content
-
     def get_response(
         self,
         sys_prompt: str = None,
