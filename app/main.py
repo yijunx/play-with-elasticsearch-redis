@@ -1,4 +1,3 @@
-
 import redis
 from elasticsearch import Elasticsearch
 
@@ -15,16 +14,9 @@ def get_redis_client() -> redis.Redis:
         db=0,
     )
 
+
 def get_es_client() -> Elasticsearch:
-    return Elasticsearch(
-        hosts=["http://elasticsearch:9200"])
-
-
-    
-
-
-
-
+    return Elasticsearch(hosts=["http://elasticsearch:9200"])
 
 
 # def process_query(query):
@@ -39,12 +31,12 @@ def get_es_client() -> Elasticsearch:
 
 #     # Step 3: Fallback to RAG
 #     response = generate_response_with_rag(query)
-    
+
 #     # Step 4: Cache the response
 #     cache_id = generate_unique_cache_id(query)  # Generate a unique ID
 #     redis_key = f"cache:{cache_id}"
 #     redis_client.set(redis_key, response)
-    
+
 #     # Step 5: Update Elasticsearch
 #     es_body = {
 #         "cache_id": cache_id,

@@ -1,7 +1,7 @@
 from typing import Iterable
 
-
 from openai import Client
+
 
 class MessageForLLM:
     def __init__(self, role: str, content: str):
