@@ -1,12 +1,7 @@
-import os
-
-from pydantic import PostgresDsn
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 
 class EnvSettings(BaseSettings):
- 
-
     # listens on the redis channel for messages
     REDIS_HOST: str = "redis"
     REDIS_PORT: int = 6379
@@ -22,7 +17,7 @@ class EnvSettings(BaseSettings):
     ELASTICSEARCH_PASSWORD: str = "not used"
     ELASTICSEARCH_INDEX: str = "chatbot"
 
-    # LLM
+    # LLM, i am hosting with vllm locally
     LLM_API_KEY: str = "does not matter"
     LLM_BASE_URL: str = "http://10.4.33.6:80/v1"
     LLM_NAME: str = "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4"
