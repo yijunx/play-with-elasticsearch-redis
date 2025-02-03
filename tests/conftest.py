@@ -1,6 +1,9 @@
 import pytest
 
 from app.context_providers.base_context_provider import JiberishContextProvider
+from app.llm.basic_llm import BasicLLM
+from app.services.s2 import S2
+from app.utils.config import env
 
 
 @pytest.fixture
@@ -42,3 +45,17 @@ def context_provider_two():
         ],
         simulated_delay=0.5,
     )
+
+
+@pytest.fixture
+def llm():
+    return BasicLLM(
+        base_url=env.LLM_BASE_URL,
+        api_key=env.LLM_API_KEY,
+        model=env.LLM_NAME,
+    )
+
+
+@pytest.fixture
+def s2(context_provider_one, context_provider_two, llm):
+    return S2(llm=llm, context_providers=[context_provider_one, context_provider_two])
