@@ -4,6 +4,7 @@ from redis import Redis
 
 from app.context_providers.base_context_provider import JiberishContextProvider
 from app.llm.basic_llm import BasicLLM
+from app.services.s1 import S1
 from app.services.s2 import S2
 from app.utils.config import env
 
@@ -80,3 +81,8 @@ def es():
 @pytest.fixture
 def s2(context_provider_one, context_provider_two, llm):
     return S2(llm=llm, context_providers=[context_provider_one, context_provider_two])
+
+
+@pytest.fixture
+def s1(r, es):
+    return S1(redis=r, es=es, es_index=env.ELASTICSEARCH_INDEX)

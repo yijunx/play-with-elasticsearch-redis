@@ -51,7 +51,7 @@ class S1:
         if answer_key_in_redis:
             cached_answer = self.r.get(answer_key_in_redis)
             if cached_answer:
-                return cached_answer  # .decode()
+                return cached_answer.decode()
         return None
 
     def store_answer(self, query: str, computed_answer: str, labels: list[str]):

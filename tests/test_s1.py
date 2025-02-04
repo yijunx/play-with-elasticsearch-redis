@@ -9,3 +9,16 @@ def test_extract_labels():
     q = "你叫森么名"
     labels = extract_labels(q)
     print(labels)
+
+
+def test_s1_store_answer(s1: S1):
+    query = "What is the capital of France?"
+    computed_answer = "Paris"
+    labels = extract_labels(query)
+    s1.store_answer(query, computed_answer, labels)
+
+
+def test_s1_get_answer(s1: S1):
+    query = "What is France capitol?"
+    answer = s1.get_answer(query)
+    assert answer == "Paris"
