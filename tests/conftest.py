@@ -4,6 +4,8 @@ from app.context_providers.base_context_provider import JiberishContextProvider
 from app.llm.basic_llm import BasicLLM
 from app.services.s2 import S2
 from app.utils.config import env
+from redis import Redis
+from elasticsearch import Elasticsearch
 
 
 @pytest.fixture
@@ -57,5 +59,25 @@ def llm():
 
 
 @pytest.fixture
+def r():
+    return Redis(
+        host=env.REDIS_HOST,
+        port=env.REDIS_PORT,
+        username=env.REDIS_USER,
+        password=env.REDIS_PASSWORD,
+        db=env.REDIS_DB,
+    )
+
+@pytest.fixture
+def es():
+    return Elasticsearch(
+        hosts=[f"http://{env.ELASTICSEARCH_HOST}:{env.ELASTICSEARCH_PORT}"],
+        # http_auth=(env.ELASTICSEARCH_USER, env.ELASTICSEARCH_PASSWORD),
+    )
+
+
+
+@pytest.fixture
 def s2(context_provider_one, context_provider_two, llm):
     return S2(llm=llm, context_providers=[context_provider_one, context_provider_two])
+
