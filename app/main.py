@@ -1,12 +1,9 @@
-# here i am going to demonstrate the s1 + s2
-# the cache mechanism
-
-import redis
 from elasticsearch import Elasticsearch
 from redis import Redis
 
 from app.context_providers.base_context_provider import JiberishContextProvider
 from app.llm.basic_llm import BasicLLM
+from app.orchestractor.base import Orchestrator
 from app.services.s1 import S1
 from app.services.s2 import S2
 from app.utils.config import env
@@ -87,7 +84,5 @@ def get_s2() -> S2:
     )
 
 
-class Orchestrator:
-    def __init__(self, redis, es):
-        self.redis = redis
-        self.es = es
+def get_orchestrator():
+    return Orchestrator(s1=get_s1(), s2=get_s2())

@@ -9,6 +9,7 @@ from app.main import (
     get_context_provider_two,
     get_es,
     get_llm,
+    get_orchestrator,
     get_r,
     get_s1,
     get_s2,
@@ -51,3 +52,8 @@ def s2():
 @pytest.fixture
 def s1():
     return get_s1()
+
+
+@pytest.fixture
+def orchestractor():
+    return get_orchestrator()

@@ -8,14 +8,14 @@ class EnvSettings(BaseSettings):
     REDIS_USER: str = "default"
     REDIS_SSL: bool = False
     REDIS_PASSWORD: str = "sOmE_sEcUrE_pAsS"
-    REDIS_DB: int = 0
+    REDIS_DB: int = 1
 
     # Elasticsearch configuration
     ELASTICSEARCH_HOST: str = "elasticsearch"
     ELASTICSEARCH_PORT: int = "9200"
-    ELASTICSEARCH_USER: str = "default"
-    ELASTICSEARCH_PASSWORD: str = "not used"
-    ELASTICSEARCH_INDEX: str = "chatbot"
+    # ELASTICSEARCH_USER: str = "default"
+    # ELASTICSEARCH_PASSWORD: str = "not used"
+    ELASTICSEARCH_INDEX: str = "chatbot2"
 
     # LLM, i am hosting with vllm locally
     LLM_API_KEY: str = "does not matter"

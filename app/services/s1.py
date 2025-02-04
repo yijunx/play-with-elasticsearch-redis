@@ -34,15 +34,24 @@ class S1:
         self.es_index = es_index
 
     def get_answer_key_from_es(self, labels):
+
+        # Use minimum_should_match:
+        # Require a certain percentage or number of label matches to consider a document relevant.
+        # Example: "minimum_should_match": "75%" ensures at least 75% of labels match.
         query = {
             "query": {
-                "bool": {"should": [{"match": {"labels": label}} for label in labels]}
+                "bool": {
+                    "should": [{"match": {"labels": label}} for label in labels],
+                    # At least 75% match or 2 labels
+                    "minimum_should_match": max(2, int(0.75 * len(labels))),
+                }
             }
         }
         response = self.es.search(index=self.es_index, body=query)
         hits = response["hits"]["hits"]
         if hits:
             return hits[0]["_source"]["answer_id"]  # Assuming the first hit is relevant
+        return None
 
     def get_answer(self, query):
         labels = extract_labels(query)

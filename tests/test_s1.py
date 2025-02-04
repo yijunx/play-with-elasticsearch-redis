@@ -15,14 +15,15 @@ def test_s1_store_answer(s1: S1):
     query = "What is the capital of France?"
     computed_answer = "Paris"
     labels = extract_labels(query)
+    print(labels)
     s1.store_answer(query, computed_answer, labels)
 
 
 def test_s1_get_answer(s1: S1):
-    query = "What is France capitol?"
+    query = "France capitol is What?"
     answer = s1.get_answer(query)
     assert answer == "Paris"
 
-    query = "France capitol at where?"
+    query = "France capitol what"
     answer = s1.get_answer(query)
     assert answer == "Paris"
