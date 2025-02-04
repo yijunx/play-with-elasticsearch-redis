@@ -22,3 +22,7 @@ def test_s1_get_answer(s1: S1):
     query = "What is France capitol?"
     answer = s1.get_answer(query)
     assert answer == "Paris"
+
+    query = "France capitol at where?"
+    answer = s1.get_answer(query)
+    assert answer == "Paris"
