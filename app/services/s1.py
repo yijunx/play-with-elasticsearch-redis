@@ -19,11 +19,10 @@ except:
 
 # --------------- NER + labels ---------------------
 def setup_spacy_nlp():
-    """
-    需要在命令行中执行:
-      pip install spacy
-      python -m spacy download en_core_web_sm
-    """
+      
+    #   poetry add spacy
+    #   python -m spacy download en_core_web_sm
+
     return spacy.load("en_core_web_sm")
 
 
@@ -32,7 +31,10 @@ _nlp = spacy.load("en_core_web_sm")
 
 def extract_labels(query: str):
     doc = _nlp(query.lower())
+
     # PRODUCT (商品), ORG (组织), GPE (地理政治实体)
+    # For more detailed classification, we can use spaCy's en_core_web_trf (Transformer-based) model
+
     ent_list = [ent.text for ent in doc.ents if ent.label_ in ["PRODUCT", "ORG", "GPE"]]
 
     if not ent_list:
