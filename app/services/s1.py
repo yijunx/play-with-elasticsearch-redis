@@ -52,21 +52,15 @@ class S1:
         self.nlp = _nlp
 
     def get_answer_key_from_es(self, labels):
-        must_clauses = []
-        for label in labels:
-            must_clauses.append({
-                "match": {
-                    "labels": {
-                        "query": label,
-                        "fuzziness": "AUTO"
-                    }
-                }
-            })
+        should_clauses = [
+            {"match": {"labels": {"query": label, "fuzziness": "AUTO"}}}
+            for label in labels
+        ]
 
         query = {
             "query": {
                 "bool": {
-                    "should": [{"match": {"labels": {"query": label, "fuzziness": "AUTO"}}}for label in labels],
+                    "should": should_clauses,
                     "minimum_should_match": 1
                 }
             }
@@ -78,6 +72,7 @@ class S1:
         if hits:
             return hits[0]["_source"]["answer_id"]
         return None
+
 
     def get_answer(self, query: str):
         labels = extract_labels(query)
