@@ -41,7 +41,7 @@ def r():
 
 @pytest.fixture
 def es():
-    get_es()
+    return get_es()
 
 
 @pytest.fixture

@@ -14,9 +14,9 @@ def test_extract_labels():
 def test_s1_store_answer(s1: S1):
     query = "What is the capital of France?"
     computed_answer = "Paris"
-    labels = extract_labels(query)
-    print(labels)
-    s1.store_answer(query, computed_answer, labels)
+    # labels = extract_labels(query)
+    # print(labels)
+    s1.store_answer(query, computed_answer)
 
 
 def test_s1_get_answer(s1: S1):

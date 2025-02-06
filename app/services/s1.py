@@ -1,7 +1,3 @@
-# here s1 means fast thinking
-# we will use redis + elasticsearch to cache the result
-# previous asked.
-
 import hashlib
 import time
 
@@ -9,10 +5,11 @@ import nltk
 from elasticsearch import Elasticsearch
 from redis import Redis
 
+import spacy
+from spacy.tokens import Doc
+from nltk import word_tokenize
+
 try:
-    # perhaps need to move it to main.py
-    # so it will download at start up
-    # explicitly download punkt tokenizer
     before = time.time()
     nltk.download("punkt_tab")
     after = time.time()
@@ -20,11 +17,29 @@ try:
 except:
     pass
 
+# --------------- NER + labels ---------------------
+def setup_spacy_nlp():
+    """
+    需要在命令行中执行:
+      pip install spacy
+      python -m spacy download en_core_web_sm
+    """
+    return spacy.load("en_core_web_sm")
+
+
+_nlp = spacy.load("en_core_web_sm")
+
 
 def extract_labels(query: str):
-    tokens = nltk.word_tokenize(query.lower())
-    labels = [token for token in tokens if token.isalpha()]  # Simple filter
-    return labels
+    doc = _nlp(query.lower())
+    # PRODUCT (商品), ORG (组织), GPE (地理政治实体)
+    ent_list = [ent.text for ent in doc.ents if ent.label_ in ["PRODUCT", "ORG", "GPE"]]
+
+    if not ent_list:
+        tokens = word_tokenize(query)
+        ent_list = [token for token in tokens if token.isalpha()]
+
+    return ent_list
 
 
 class S1:
@@ -32,28 +47,37 @@ class S1:
         self.r = redis
         self.es = es
         self.es_index = es_index
+        self.nlp = _nlp
 
     def get_answer_key_from_es(self, labels):
+        must_clauses = []
+        for label in labels:
+            must_clauses.append({
+                "match": {
+                    "labels": {
+                        "query": label,
+                        "fuzziness": "AUTO"
+                    }
+                }
+            })
 
-        # Use minimum_should_match:
-        # Require a certain percentage or number of label matches to consider a document relevant.
-        # Example: "minimum_should_match": "75%" ensures at least 75% of labels match.
         query = {
             "query": {
                 "bool": {
-                    "should": [{"match": {"labels": label}} for label in labels],
-                    # At least 75% match or 2 labels
-                    "minimum_should_match": max(2, int(0.75 * len(labels))),
+                    "should": [{"match": {"labels": {"query": label, "fuzziness": "AUTO"}}}for label in labels],
+                    "minimum_should_match": 1
                 }
             }
         }
+
         response = self.es.search(index=self.es_index, body=query)
         hits = response["hits"]["hits"]
+
         if hits:
-            return hits[0]["_source"]["answer_id"]  # Assuming the first hit is relevant
+            return hits[0]["_source"]["answer_id"]
         return None
 
-    def get_answer(self, query):
+    def get_answer(self, query: str):
         labels = extract_labels(query)
         answer_key_in_redis = self.get_answer_key_from_es(labels)
 
@@ -63,12 +87,18 @@ class S1:
                 return cached_answer.decode()
         return None
 
-    def store_answer(self, query: str, computed_answer: str, labels: list[str]):
-        # No matching answer ID, process and cache new answer
+    def store_answer(self, query: str, computed_answer: str):
+        labels = extract_labels(query)
         new_answer_id = hashlib.sha256(query.encode()).hexdigest()
+
         self.r.set(new_answer_id, computed_answer)
-        # Index in Elasticsearch
-        self.es.index(
-            index=self.es_index, body={"answer_id": new_answer_id, "labels": labels}
-        )
+
+        doc = {
+            "answer_id": new_answer_id,
+            "labels": labels,
+        }
+        self.es.index(index=self.es_index, body=doc)
+
+        self.es.indices.refresh(index=self.es_index)
+
         return computed_answer
