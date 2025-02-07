@@ -1,0 +1,95 @@
+{
+    "test_cases": [
+      {
+        "question_bank": [
+          "Can you recommend a laptop for gaming under $1500?",
+          "Best gaming laptops for 2024?",
+          "What is the most powerful gaming laptop?",
+          "Suggest a budget-friendly gaming PC"
+        ],
+        "query_text": "plz suggest me a lapto fr gamng 1500$"
+      },
+      {
+        "question_bank": [
+          "What are some good movies directed by Christopher Nolan?",
+          "Tell me about movies similar to Inception",
+          "Which Nolan films are worth watching?",
+          "Can you list movies like Interstellar?"
+        ],
+        "query_text": "Movis frm Cristopher Nolen I shld wtch?"
+      },
+      {
+        "question_bank": [
+          "How do I reach the Eiffel Tower from CDG airport?",
+          "Best way to travel from Charles de Gaulle to Paris city center?",
+          "Public transport options from CDG to downtown Paris?",
+          "What is the fastest way to get from CDG to the Louvre?"
+        ],
+        "query_text": "Hw do I go frm Paris airport to Ifle Towr?"
+      },
+      {
+        "question_bank": [
+          "What are the best programming languages for AI development?",
+          "Is Python good for machine learning?",
+          "Should I learn Julia for AI?",
+          "Which programming language is most used in deep learning?"
+        ],
+        "query_text": "AI codng lang? Pythn best?"
+      },
+      {
+        "question_bank": [
+          "Who won the FIFA World Cup in 2018?",
+          "Which country was the runner-up in the 2018 World Cup?",
+          "Who scored the most goals in FIFA 2018?",
+          "Tell me about the best matches of FIFA World Cup 2018"
+        ],
+        "query_text": "2018 Fifa cham? Frnace or Germany?"
+      },
+      {
+        "question_bank": [
+          "Which iPhone has the best camera?",
+          "iPhone 15 vs Samsung S23 Ultra – which one is better?",
+          "Does the iPhone 15 Pro have a better battery than iPhone 14?",
+          "Compare the cameras of iPhone 15 Pro and Pixel 8"
+        ],
+        "query_text": "is iphne 15Pro camra betr thn Samsng?"
+      },
+      {
+        "question_bank": [
+          "Can you recommend some good books about personal finance?",
+          "Best books on investing for beginners?",
+          "What are the top books on money management?",
+          "Which book teaches the best stock trading strategies?"
+        ],
+        "query_text": "Finace books? Mony invstmnt?"
+      },
+      {
+        "question_bank": [
+          "Who invented the Tesla car?",
+          "Is Elon Musk the founder of Tesla?",
+          "Who were the original founders of Tesla?",
+          "What year was Tesla founded?"
+        ],
+        "query_text": "Tesla frst founder? Musk or smone else?"
+      },
+      {
+        "question_bank": [
+          "How to bake a chocolate cake?",
+          "What are some easy recipes for beginners?",
+          "Can you suggest a simple dessert recipe?",
+          "What ingredients do I need to bake a basic cake?"
+        ],
+        "query_text": "Mak choco cke at hom? Need instrctions."
+      },
+      {
+        "question_bank": [
+          "What is the capital of Canada?",
+          "Which city is the capital of Australia?",
+          "What's the capital city of Brazil?",
+          "Tell me the capitals of major countries"
+        ],
+        "query_text": "Cpital of Cnada? Otawa or Tronto?"
+      }
+    ]
+  }
+  

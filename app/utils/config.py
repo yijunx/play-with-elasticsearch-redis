@@ -19,8 +19,10 @@ class EnvSettings(BaseSettings):
 
     # LLM, i am hosting with vllm locally
     LLM_API_KEY: str = "does not matter"
-    LLM_BASE_URL: str = "http://10.4.33.6:80/v1"
-    LLM_NAME: str = "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4"
+    # LLM_BASE_URL: str = "http://10.4.33.15:80/v1"
+    # LLM_NAME: str = "inarikami/DeepSeek-R1-Distill-Qwen-32B-AWQ"
+    LLM_BASE_URL: str = "http://10.4.33.7:80/v1"
+    LLM_NAME: str = "Qwen/Qwen2-VL-7B-Instruct-GPTQ-Int4"
 
 
 env = EnvSettings()

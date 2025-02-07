@@ -8,16 +8,18 @@ class Orchestrator:
         self.s2 = s2
 
     def get_answer(self, query: str):
-        ans = self.s1.get_answer(query)
         print("###### we are in the orchestrator ######")
+
+        ans = self.s1.get_answer(query)
         if ans:
             print("###### answer from s1 ######")
             print("ans: ", ans)
             return ans
+        
         else:
             ans = self.s2.get_answer(query)
             labels = extract_labels(query)
-            self.s1.store_answer(query, ans, labels)
+            self.s1.store_answer(query, ans)
             print("###### answer from s2 ######")
             print("ans: ", ans)
             return ans

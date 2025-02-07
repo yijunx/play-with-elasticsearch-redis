@@ -17,25 +17,13 @@ try:
 except:
     pass
 
-# --------------- NER + labels ---------------------
-def setup_spacy_nlp():
-      
-    #   poetry add spacy
-    #   python -m spacy download en_core_web_sm
 
-    return spacy.load("en_core_web_sm")
-
-
-_nlp = spacy.load("en_core_web_sm")
+_nlp = spacy.load("en_core_web_trf")
 
 
 def extract_labels(query: str):
     doc = _nlp(query.lower())
-
-    # PRODUCT (商品), ORG (组织), GPE (地理政治实体)
-    # For more detailed classification, we can use spaCy's en_core_web_trf (Transformer-based) model
-
-    ent_list = [ent.text for ent in doc.ents if ent.label_ in ["PRODUCT", "ORG", "GPE"]]
+    ent_list = [ent.text for ent in doc.ents]
 
     if not ent_list:
         tokens = word_tokenize(query)
@@ -61,7 +49,7 @@ class S1:
             "query": {
                 "bool": {
                     "should": should_clauses,
-                    "minimum_should_match": 1
+                    "minimum_should_match": 2
                 }
             }
         }

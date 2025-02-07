@@ -1,0 +1,222 @@
+{
+    "Test Case 1": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Can you recommend a laptop for gaming under $1500?",
+            "Similarity Score": 1.1207,
+            "Execution Time (ms)": 70.63889503479004
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "What is the most powerful gaming laptop?",
+            "Similarity Score": 0.9608,
+            "Execution Time (ms)": 252.20179557800293
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "Can you recommend a laptop for gaming under $1500?",
+            "Similarity Score": 683.6356,
+            "Execution Time (ms)": 933.6237907409668
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "Can you recommend a laptop for gaming under $1500?",
+            "Similarity Score": 25.412,
+            "Execution Time (ms)": 130.50603866577148
+        }
+    },
+    "Test Case 2": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Can you list movies like Interstellar?",
+            "Similarity Score": 1.8295,
+            "Execution Time (ms)": 38.53249549865723
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "What are some good movies directed by Christopher Nolan?",
+            "Similarity Score": 1.6374,
+            "Execution Time (ms)": 125.79178810119629
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "What are some good movies directed by Christopher Nolan?",
+            "Similarity Score": 783.8987,
+            "Execution Time (ms)": 542.4356460571289
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "Tell me about movies similar to Inception",
+            "Similarity Score": 37.222,
+            "Execution Time (ms)": 84.00344848632812
+        }
+    },
+    "Test Case 3": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Best way to travel from Charles de Gaulle to Paris city center?",
+            "Similarity Score": 0.8028,
+            "Execution Time (ms)": 35.44473648071289
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "Best way to travel from Charles de Gaulle to Paris city center?",
+            "Similarity Score": 0.5901,
+            "Execution Time (ms)": 164.8428440093994
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "How do I reach the Eiffel Tower from CDG airport?",
+            "Similarity Score": 506.2721,
+            "Execution Time (ms)": 546.6256141662598
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "How do I reach the Eiffel Tower from CDG airport?",
+            "Similarity Score": 19.1026,
+            "Execution Time (ms)": 67.37422943115234
+        }
+    },
+    "Test Case 4": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "What are the best programming languages for AI development?",
+            "Similarity Score": 1.1905,
+            "Execution Time (ms)": 27.19855308532715
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "What are the best programming languages for AI development?",
+            "Similarity Score": 1.1614,
+            "Execution Time (ms)": 92.73433685302734
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "What are the best programming languages for AI development?",
+            "Similarity Score": 947.0032,
+            "Execution Time (ms)": 525.0680446624756
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "What are the best programming languages for AI development?",
+            "Similarity Score": 16.379,
+            "Execution Time (ms)": 82.32378959655762
+        }
+    },
+    "Test Case 5": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Who won the FIFA World Cup in 2018?",
+            "Similarity Score": 0.8709,
+            "Execution Time (ms)": 42.49143600463867
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "Who won the FIFA World Cup in 2018?",
+            "Similarity Score": 0.6964,
+            "Execution Time (ms)": 143.8124179840088
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "Who won the FIFA World Cup in 2018?",
+            "Similarity Score": 608.1937,
+            "Execution Time (ms)": 515.2678489685059
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "Tell me about the best matches of FIFA World Cup 2018",
+            "Similarity Score": 14.7389,
+            "Execution Time (ms)": 70.67203521728516
+        }
+    },
+    "Test Case 6": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Compare the cameras of iPhone 15 Pro and Pixel 8",
+            "Similarity Score": 1.2543,
+            "Execution Time (ms)": 55.51791191101074
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "Compare the cameras of iPhone 15 Pro and Pixel 8",
+            "Similarity Score": 1.3331,
+            "Execution Time (ms)": 160.6273651123047
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "Compare the cameras of iPhone 15 Pro and Pixel 8",
+            "Similarity Score": 589.9088,
+            "Execution Time (ms)": 572.3073482513428
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "Does the iPhone 15 Pro have a better battery than iPhone 14?",
+            "Similarity Score": 27.2024,
+            "Execution Time (ms)": 86.1349105834961
+        }
+    },
+    "Test Case 7": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "What are the top books on money management?",
+            "Similarity Score": 0.6753,
+            "Execution Time (ms)": 29.510498046875
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "What are the top books on money management?",
+            "Similarity Score": 1.1609,
+            "Execution Time (ms)": 105.32426834106445
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "What are the top books on money management?",
+            "Similarity Score": 509.9302,
+            "Execution Time (ms)": 317.2922134399414
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "What are the top books on money management?",
+            "Similarity Score": 15.5343,
+            "Execution Time (ms)": 69.28491592407227
+        }
+    },
+    "Test Case 8": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Is Elon Musk the founder of Tesla?",
+            "Similarity Score": 0.451,
+            "Execution Time (ms)": 33.71262550354004
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "Who were the original founders of Tesla?",
+            "Similarity Score": 0.5193,
+            "Execution Time (ms)": 99.85804557800293
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "Is Elon Musk the founder of Tesla?",
+            "Similarity Score": 392.4621,
+            "Execution Time (ms)": 563.6615753173828
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "Is Elon Musk the founder of Tesla?",
+            "Similarity Score": 12.5942,
+            "Execution Time (ms)": 50.99630355834961
+        }
+    },
+    "Test Case 9": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "How to bake a chocolate cake?",
+            "Similarity Score": 1.5445,
+            "Execution Time (ms)": 50.136566162109375
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "How to bake a chocolate cake?",
+            "Similarity Score": 1.5268,
+            "Execution Time (ms)": 158.0820083618164
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "How to bake a chocolate cake?",
+            "Similarity Score": 716.9152,
+            "Execution Time (ms)": 523.5800743103027
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "What ingredients do I need to bake a basic cake?",
+            "Similarity Score": 32.8711,
+            "Execution Time (ms)": 73.66299629211426
+        }
+    },
+    "Test Case 10": {
+        "MiniLM (all-MiniLM-L6-v2)": {
+            "Matched Question": "Tell me the capitals of major countries",
+            "Similarity Score": 1.4987,
+            "Execution Time (ms)": 29.417991638183594
+        },
+        "MPNet (all-mpnet-base-v2)": {
+            "Matched Question": "What is the capital of Canada?",
+            "Similarity Score": 1.5438,
+            "Execution Time (ms)": 103.50990295410156
+        },
+        "STSB RoBERTa (stsb-roberta-large)": {
+            "Matched Question": "What is the capital of Canada?",
+            "Similarity Score": 660.354,
+            "Execution Time (ms)": 295.69315910339355
+        },
+        "Multilingual MiniLM (paraphrase-multilingual-MiniLM-L12-v2)": {
+            "Matched Question": "Tell me the capitals of major countries",
+            "Similarity Score": 30.3803,
+            "Execution Time (ms)": 48.53105545043945
+        }
+    }
+}
