@@ -55,5 +55,5 @@ def s1():
 
 
 @pytest.fixture
-def orchestractor():
+def orchestrator():
     return get_orchestrator()

@@ -18,7 +18,6 @@ class Orchestrator:
         
         else:
             ans = self.s2.get_answer(query)
-            labels = extract_labels(query)
             self.s1.store_answer(query, ans)
             print("###### answer from s2 ######")
             print("ans: ", ans)
