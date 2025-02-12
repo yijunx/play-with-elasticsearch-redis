@@ -3,7 +3,7 @@ from redis import Redis
 
 from app.context_providers.base_context_provider import JiberishContextProvider
 from app.llm.basic_llm import BasicLLM
-from app.orchestractor.base import Orchestrator
+from app.orchestrator.base import Orchestrator
 from app.services.s1 import S1
 from app.services.s2 import S2
 from app.utils.config import env
@@ -74,7 +74,7 @@ def get_context_provider_two():
 
 
 def get_s1() -> S1:
-    return S1(redis=get_r(), es=get_es(), es_index=env.ELASTICSEARCH_INDEX)
+    return S1(redis=get_r(), es=get_es(), es_index=env.ELASTICSEARCH_INDEX or "default_index")
 
 
 def get_s2() -> S2:

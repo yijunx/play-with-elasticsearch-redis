@@ -41,7 +41,7 @@ def r():
 
 @pytest.fixture
 def es():
-    get_es()
+    return get_es()
 
 
 @pytest.fixture
@@ -55,5 +55,5 @@ def s1():
 
 
 @pytest.fixture
-def orchestractor():
+def orchestrator():
     return get_orchestrator()
